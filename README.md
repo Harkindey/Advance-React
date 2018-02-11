@@ -3,4 +3,4 @@
  - Lesson1.js -->  Imperative vs Declarative, "extending" React
  - Lesson2.js -->  Implicit State with Compound Components and cloneElement
  - Lesson3.js -->  Implicit State with Compound Components and Context
- - lesson4.js -> Explicit State with Higher Order Components
+ - lesson4.js --> Explicit State with Higher Order Components
