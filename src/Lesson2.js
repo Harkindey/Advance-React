@@ -35,7 +35,7 @@ import * as text from './text';
             </TabPanels>
         </Tabs>
        * How do we get the app state in 
-       * <Tabs /> to <TabList /> to <Tab /> as props
+       * <Tabs /> ---> <TabList /> ---> <Tab /> as props
        * We call it IMPLICIT STATE
        * There are some IMPLICIT STATE with the tabs that the 
        * product developer doesnt want to see
