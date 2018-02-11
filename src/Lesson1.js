@@ -4,27 +4,27 @@ import SineWave from './SineWave';
 import logo from './logo.svg';
 import './App.css';
 
-/*  Firstly system works with out state,
-    by letting app respond to user event 
-        onMouseEnter={this.play} ----> this.oscillator.play();
-        onMouseLeave={this.stop} ----> this.oscillator.stop();
-    but i have to remove the time constraint (event)
-    a lot of state are playing around on managed 
-        isPlaying: false,
-        pitch: 0.5,
-        volume: 0.25
-    When we say we eliminate time it means user 
-    dont have to MouseEnter or MouseLeave to play the instrument
-    instead we can just change some state
-    WAIT A SECOND WHAT OF IF WE HAVE A COMPONENT THAT CAN PLAY A TONE!!!
-    We are gonna make this ----> <Tone /> 
-    Now that we have a component we can render two sounds,'COMPOSITION'
-    You can see how we make thing declarative we 
-    get to compose them together
-    With react we can declaratively compose our UI
-    and offload our dom updates to re-render and the only way to 
-    offload the updates is by calling re-render
-    ELIMINATE TIME AND GET COMPOSITION
+/*  - Firstly system works with out state,
+      by letting app respond to user event 
+          onMouseEnter={this.play} ----> this.oscillator.play();
+          onMouseLeave={this.stop} ----> this.oscillator.stop();
+    -  but i have to remove the time constraint (event)
+        a lot of state are playing around on managed 
+            isPlaying: false,
+            pitch: 0.5,
+            volume: 0.25
+        When we say we eliminate time it means user 
+        dont have to MouseEnter or MouseLeave to play the instrument
+        instead we can just change some state
+    -  WAIT A SECOND WHAT OF IF WE HAVE A COMPONENT THAT CAN PLAY A TONE!!!
+        We are gonna make this ----> <Tone /> 
+        Now that we have a component we can render two sounds,'COMPOSITION'
+        You can see how we make thing declarative we 
+        get to compose them together
+        With react we can declaratively compose our UI
+        and offload our dom updates to re-render and the only way to 
+        offload the updates is by calling re-render
+        ELIMINATE TIME AND GET COMPOSITION
 */
 
 class Tone extends Component {
