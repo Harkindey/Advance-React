@@ -5,3 +5,4 @@
  - Lesson3.js -->  Implicit State with Compound Components and Context
  - Lesson4.js --> Explicit State with Higher Order Components
  - Lesson5.js --> Explicit State with Render Props
+ - Lesson6.js --> Controlled Custom Components
