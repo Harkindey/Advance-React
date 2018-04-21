@@ -40,7 +40,7 @@ import createMediaListener from './createMediaListener';
 
 */
 //const withMedia = (Comp, queries) => {
-const withMedia = (queries) => (App) => {
+const withMedia = (queries) => (Comp) => {
     const media = createMediaListener(queries);
 
     return class WithMedia extends Component {
