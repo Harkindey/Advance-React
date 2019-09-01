@@ -113,3 +113,44 @@ function ChatRecipientPicker() {
 		</>
 	);
 }
+
+// REDUCER LOGIC IN HOOKS
+// For example, maybe you have a complex component that contains a lot of local
+// state that is managed in an ad-hoc way. useState doesn’t make centralizing the
+// update logic any easier so you might prefer to write it as a Redux reducer:
+
+function todosReducer(state, action) {
+	switch (action.type) {
+		case 'add':
+			return [
+				...state,
+				{
+					text: action.text,
+					completed: false,
+				},
+			];
+		// ... other actions ...
+		default:
+			return state;
+	}
+}
+
+function useReducer(reducer, initialState) {
+	const [state, setState] = useState(initialState);
+
+	function dispatch(action) {
+		const nextState = reducer(state, action);
+		setState(nextState);
+	}
+
+	return [state, dispatch];
+}
+
+function Todos() {
+	const [todos, dispatch] = useReducer(todosReducer, []);
+
+	function handleAddClick(text) {
+		dispatch({ type: 'add', text });
+	}
+	// ...
+}
