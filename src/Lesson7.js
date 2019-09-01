@@ -142,7 +142,24 @@ function FriendStatusWithCounter(props) {
 		},
 		[props.friend.id] //Tip: Optimizing Performance by Skipping Effects
 	);
-	// ...
+
+	// If you use this optimization, make sure the array includes all values from
+	// the component scope (such as props and state) that change over time and that are
+	// used by the effect. Otherwise, your code will reference stale values from previous renders.
+	// Learn more about how to deal with functions and what to do when the array changes too often.
+	// If you want to run an effect and clean it up only once (on mount and unmount),
+	// you can pass an empty array ([]) as a second argument. This tells React that your effect doesn’t
+	// depend on any values from props or state, so it never needs to re-run. This isn’t handled as a
+	// special case — it follows directly from how the dependencies array always works.
+
+	// If you pass an empty array ([]), the props and state inside the effect will always have their
+	//  initial values. While passing [] as the second argument is closer to the familiar componentDidMount
+	//  and componentWillUnmount mental model, there are usually better solutions to avoid re-running effects
+	//  too often. Also, don’t forget that React defers running useEffect until after the browser has painted,
+	//  so doing extra work is less of a problem.
+
+	// We recommend using the exhaustive-deps rule as part of our eslint-plugin-react-hooks package. It warns
+	// when dependencies are specified incorrectly and suggests a fix.
 }
 
 // REDUCER LOGIC IN HOOKS
