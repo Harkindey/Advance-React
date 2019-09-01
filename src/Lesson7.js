@@ -123,19 +123,25 @@ function FriendStatusWithCounter(props) {
 	});
 
 	const [isOnline, setIsOnline] = useState(null);
-	useEffect(() => {
-		function handleStatusChange(status) {
-			setIsOnline(status.isOnline);
-		}
+	useEffect(
+		() => {
+			function handleStatusChange(status) {
+				setIsOnline(status.isOnline);
+			}
 
-		ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
-		return () => {
-			ChatAPI.unsubscribeFromFriendStatus(
+			ChatAPI.subscribeToFriendStatus(
 				props.friend.id,
 				handleStatusChange
 			);
-		};
-	});
+			return () => {
+				ChatAPI.unsubscribeFromFriendStatus(
+					props.friend.id,
+					handleStatusChange
+				);
+			};
+		},
+		[props.friend.id] //Tip: Optimizing Performance by Skipping Effects
+	);
 	// ...
 }
 
